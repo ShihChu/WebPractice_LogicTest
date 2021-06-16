@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>燒腦時間</title>
+  <link rel="Shortcut Icon" type="image/x-icon" href="img/head_icon.png" />
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!--<script type="text/javascript" src="javascript.js"></script>-->
+</head>
+<body>
+  <header>
+      <div class="header_center">
+        <h1><img src="img/head_icon.png" alt="icon" width="50px"/><font color="white" size="7">燒腦時間-邏輯測驗</font></h1>
+        <p style="font-size:24px">測試你的邏輯能力!!</p>
+        <br>
+        <a href="#formplace" id="scrolling">點擊開始↓</a>
+	  </div>
+  </header>
+  
+  <form action="">
+      <div id="pagestyle"> </div>
+	  <div class="page_center1" id="formplace">
+	    <h1>基本資料</h1>
+		<table>
+		  <tr>
+			<th colspan="2"></th>
+		  </tr>
+		  <tr>
+			<td>暱稱</td>
+			<td>
+			  <input type="text" id="uname" name="uname" size="8" maxlength="20"/ required>
+			</td>
+		  </tr>
+		  <tr>
+			<td>性別</td>
+			<td>
+			  <label><input type="radio" name="sex" id="male"/ required>♂男</label> 
+			  <label><input type="radio" name="sex" id="female"/ required>♀女</label>
+			</td>
+		  </tr>
+		  <tr>
+			<td>星座</td>
+			<td>
+			  <select id="horoscope" name="horoscope">
+				<option selected="selected" disabled="disabled">請選擇...</option>
+				<option value="H_AR">牡羊座</option>
+				<option value="H_TA">金牛座</option>
+				<option value="H_GE">雙子座</option>
+				<option value="H_CA">巨蟹座</option>
+				<option value="H_LE">獅子座</option>
+				<option value="H_VI">處女座</option>
+				<option value="H_LI">天秤座</option>
+				<option value="H_SC">天蠍座</option>
+				<option value="H_SG">射手座</option>
+				<option value="H_CP">魔羯座</option>
+				<option value="H_AQ">水瓶座</option>
+				<option value="H_PI">雙魚座</option>
+			  </select>
+			</td>
+		  </tr>
+		  <tr>
+			<td>興趣</td>
+			<td>
+			  <input type="checkbox" id="reading" name="reading" value="reading" /> 閱讀書籍 <br>
+			  <input type="checkbox" id="drawing" name="drawing" value="drawing" /> 繪畫 <br>
+			  <input type="checkbox" id="watching" name="watching"  value="watching" /> 看電視
+			</td>
+		  </tr>
+		  <tr>
+			<td>自我介紹:</td>
+			<td>
+			  <textarea id="intro" name="intro" cols="40" rows="5"> </textarea>
+			</td>
+		  </tr>
+		  <tr>
+			<td colspan="2">
+			  <a href="#next">next→</a>
+			</td>
+		  </tr>
+		</table>
+	  </div>
+	  <div class="page_center2" id="next">
+	    <h1>測驗</h1>
+		<h3>Round 01</h3>
+		<p>請依據規律，選出正確答案</p>
+		<img src="img/Guess01.jpg" width="70%"/>
+		<h3>答案
+	    <label><input type="radio" name="guess01" id="01A"/ required>A</label> 
+		<label><input type="radio" name="guess01" id="01B"/ required>B</label>
+		<label><input type="radio" name="guess01" id="01C"/ required>C</label>
+		<label><input type="radio" name="guess01" id="01D"/ required>D</label>
+		</h3>
+		<a href="#next02">next→</a>
+	  </div>
+	  <div class="page_center3" id="next02">
+	    <h1>測驗</h1>
+		<h3>Round 02</h3>
+		<p>請依據數字規則，選出正確答案</p>
+		<img src="img/Guess02.jpg" width="70%"/>
+		<h3>答案
+	    <label><input type="radio" name="guess02" id="02A"/ required>A</label> 
+		<label><input type="radio" name="guess02" id="02B"/ required>B</label>
+		<label><input type="radio" name="guess02" id="02C"/ required>C</label>
+		<label><input type="radio" name="guess02" id="02D"/ required>D</label>
+		</h3>
+		<br/>
+		
+		<!--<button onclick='show()'>提交</button>-->
+	    <input type="button" onclick="show()" value="提交" />
+	    <input type="reset" value="重設" />
+		
+	  </div>
+  </form>
+  
+  
+  <script type='text/javascript'>
+	function show()
+	{
+		  var o = document.getElementById("ANS");
+		  var ans1,ans2;
+		  var grade = 0;
+
+		  //alert("您已完成輸入!");
+		  o.style.display = '';
+		  
+		  var n = document.getElementById("uname").value;
+		  var par1 = document.getElementById("showname");
+          par1.innerHTML = n+"已完成作答!來看看你是否答對了?!";
+		  //alert("已完成作答!來看看你是否答對了?!" +n);
+		  
+		  var par2 = document.getElementById("showgrade");
+		  var par3 = document.getElementById("showword");
+		  
+		  ans1 = document.getElementById("01A").checked;
+		  ans2 = document.getElementById("02B").checked;
+		  //alert("已完成作答!來看看你是否答對了?!" +ans1 + ans2);
+		  
+
+		  if(ans1 == true && ans2 == true){
+		    grade = 100;
+		  }else if(ans1 == true || ans2 == true){
+		    grade = 50;
+		  }
+		  par2.innerHTML = grade;
+          //alert("已完成作答!來看看你是否答對了?!" +grade);
+		  
+		  if(grade == 100){
+			 par3.innerHTML = "全對!";
+		  }else if(grade == 50){
+		     par3.innerHTML = "很棒!";
+		  }else{
+		     par3.innerHTML = "加油!";
+		  }
+		
+	}
+  </script>
+  
+  <div id="ANS" style="display:none">
+      <br />
+	  <br />
+      <h1>Congratulation</h1>
+	  <div id="showname">HI</div>
+	  <h2>得分:<div id="showgrade">0</div></h2>
+	  <br/>
+	  <h1 id="showword"> </h1>
+	  <br/>
+	  <h1>Round 01 答案為A<h1>
+      <h1>Round 02 答案為B<h1>
+  </div>
+  
+  <footer>Copyright &copy; Juju Chen 2017</footer>
+</body>
+</html>
